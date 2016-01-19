@@ -30,6 +30,7 @@
 
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/clj" "src/cljs"]
+                        :figwheel true
                         :compiler {:output-to "resources/public/js/main.js"
                                    :output-dir "resources/public/js/out"
                                    :main {{name}}.core
