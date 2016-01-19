@@ -7,12 +7,40 @@
 
 (println "Hello world!")
 
-(defui HelloWorld
+;; Components
+
+(defui RootView
   Object
   (render [this]
-    (dom/div nil "Hello, world!")))
+    (dom/div #js {:className "container"}
+             "Hello, world!"
+             )
+          )
 
-(def hello (om/factory HelloWorld))
+;; Read & Write
 
-(js/ReactDOM.render (hello) (gdom/getElement "app"))
+(defmulti readf om/dispatch)
+
+(defmethod readf :default
+  [{:keys [state] :as env} k params]
+  )
+
+(defmulti mutatef om/dispatch)
+
+;; Root
+
+(def data nil)
+
+(def parser (om/parser {:read readf
+                        :mutate mutatef}))
+
+(def reconciler (om/reconciler
+                  {:state data
+                   }
+                  ))
+
+(om/add-root!
+  reconciler
+  RootView
+  (gdom/getElement "app"))
 
