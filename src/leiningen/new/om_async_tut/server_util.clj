@@ -4,7 +4,7 @@
             [clojure.edn :as edn])
   (:import datomic.Util))
 
-(def uri "datomic:free://localhost:4334/{{sanitized}}")
+(def uri "datomic:mem://localhost:4334/{{sanitized}}")
 
 (defn read-all [f]
   (Util/readAll (io/reader f)))

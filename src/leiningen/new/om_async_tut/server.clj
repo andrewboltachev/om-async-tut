@@ -5,10 +5,15 @@
             [compojure.core :refer [defroutes GET PUT]]
             [compojure.route :as route]
             [compojure.handler :as handler]
-            [datomic.api :as d]))
+            [datomic.api :as d]
+            [{{name}}.util :as util]))
 
-(def uri "datomic:free://localhost:4334/{{sanitized}}")
-(def conn (d/connect uri))
+(when (= (subs util/uri 0 14) "datomic:mem://")
+  (println "Creating in-memory DB" util/uri)
+  (util/init-db)
+  )
+
+(def conn (d/connect util/uri))
 
 (defn index []
   (file-response "public/html/index.html" {:root "resources"}))
