@@ -37,6 +37,7 @@
 
 (def reconciler (om/reconciler
                   {:state data
+                   :parser parser
                    }
                   ))
 
