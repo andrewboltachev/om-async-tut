@@ -13,6 +13,7 @@
       ["project.clj" (render "project.clj" data)]
       [".gitignore" (render "gitignore" data)]
       [".bowerrc" (render "bowerrc" data)]
+      ["bower.json" (render "bower.json" data)]
       ["resources/data/schema.edn" (render "schema.edn" data)]
       ["resources/data/initial.edn" (render "initial.edn" data)]
       ["resources/public/html/index.html" (render "index.html" data)]
