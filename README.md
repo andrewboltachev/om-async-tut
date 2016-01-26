@@ -7,7 +7,7 @@ Originally template for Om. This is fork for the Om Next.
 * Bower & Bootstrap 3
 * Datomic in-memory DB creation
 * Basic Om Next "layout" in `core.cljs`
-* `core.clj` not yet ready
+* `core.clj` not yet ready, tweak it yourself
 
 ## Installation
 
